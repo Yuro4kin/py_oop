@@ -1,0 +1,4 @@
+AttributeError: 'Point' object has no attribute 'z'
+AttributeError: 'Point' object has no attribute 'sss'
+# 1.  Атрибут не существет
+
