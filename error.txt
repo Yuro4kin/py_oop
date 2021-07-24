@@ -7,3 +7,24 @@ TypeError: setCoords() missing 1 required positional argument: 'y'
 Point.setCoords(6, 9)       
 Point.setCoords(pt, 6, 9) 
 
+AttributeError: 'Point' object has no attribute '__x'
+# 3. мы не можем обратиться к такому приватному атрибуту
+
+AttributeError
+# 3. pt.WIDTH = 6   
+ возникает исключение AttributeError
+
+RecursionError: maximum recursion depth exceeded in comparison
+# 3.        self.__x = value                # метод __setattr__ будет по рекурсии запускаться снова и снова,
+                                            # пока не произойдет рекурсивное исключение RecursionError
+
+TypeError: 'NoneType' object does not support item assignment
+# 3. Нужно убрать перегруженные методы и тогда все работает
+
+AttributeError: 'Point5' object has no attribute '__z'
+# 3. создали дополнительное св-во с именем __z, то будет ошибка, т.к.
+pt.__z = 9        __z не находится в разрешенных св-вах  __slots__ = ["__x", "__y"]
+
+ValueError: 'WIDTH' in __slots__ conflicts with class variable
+# 3. не можем указывать атрибуты WIDTH=5 которые присутствуют в классе Point5
+     __slots__ = ["__x", "__y", "z", "WIDTH"]
